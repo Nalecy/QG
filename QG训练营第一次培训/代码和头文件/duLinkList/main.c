@@ -26,7 +26,10 @@ DuLNode* searchNodeByData(DuLinkedList *L,int data){
 }
 int main(){
         int choice;
-        DuLinkedList *L = (DuLinkedList*)malloc(sizeof(DuLNode));
+        DuLinkedList p = (DuLinkedList)malloc(sizeof(DuLNode));
+        DuLinkedList *L = &p;
+        p->next = NULL;
+        p->prior = NULL;
         int a3,b3,a4,*e = (ElemType*)malloc(sizeof(ElemType));
         DuLNode *p3;
         void (*f)(ElemType e)= printData;

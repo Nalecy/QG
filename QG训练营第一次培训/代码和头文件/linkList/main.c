@@ -31,7 +31,9 @@ LNode* searchNodeByData(LinkedList *L,int data){
 
 int main(){
         int choice;
-        LinkedList *L = (LinkedList*)malloc(sizeof(LNode));
+        LinkedList p = (LinkedList)malloc(sizeof(LNode));
+        LinkedList *L = &p;
+        p->next = NULL;
         int a3,b3,a4,*e = (ElemType*)malloc(sizeof(ElemType));
         LNode *p3;
         void (*f)(ElemType e)= printData;
@@ -89,7 +91,7 @@ int main(){
                                 else printf("反转失败");
                                 break;
                         case 8:
-                                if(IsLoopList(L))printf("有环\n");
+                                if(IsLoopList(*L))printf("有环\n");
                                 else printf("无环\n");
                                 break;
                         case 9:if(ReverseEvenList(L))printf("反转成功\n");
