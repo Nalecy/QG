@@ -38,14 +38,17 @@ int main(){
         LNode *p3;
         void (*f)(ElemType e)= printData;
         printMenu();
+        DestroyList(L);
         while(scanf("%d",&choice)&&choice != 0){
                 switch(choice){
                         case 1:if(InitList(L))printf("初始化成功\n");
                                 else printf("初始化失败");
                                 break;
-                        case 2:DestroyList(L);
+                        case 2:if((*L) == NULL){printf("请先初始化\n");break;}
+                                DestroyList(L);
                                 break;
                         case 3:p3 = (LinkedList)malloc(sizeof(LNode));
+                                if((*L) == NULL){printf("请先初始化\n");break;}
                                 if((*L)->next == NULL){
                                         printf("目前链表为空，请增加值为？的节点");
                                         int a3;
@@ -67,7 +70,7 @@ int main(){
                                         }
                                 }
                                 break;
-                        case 4:
+                        case 4:if((*L) == NULL){printf("请先初始化\n");break;}
                                 printf("你想删除在值为？的节点后面的第一个节点 请输入值\n");
                                 if(searchNodeByData(L,(scanf("%d",&a4),a4))==NULL)printf("请检查输入");
                                 else{
@@ -75,11 +78,11 @@ int main(){
                                         else printf("删除失败");
                                 }
                                 break;
-                        case 5:
+                        case 5:if((*L) == NULL){printf("请先初始化\n");break;}
                                 TraverseList(*L,f);
                                 printf("\n");
                                 break;
-                        case 6:{
+                        case 6:{if((*L) == NULL){printf("请先初始化\n");break;}
                                 printf("你想查找是否有值为？的节点 请输入值\n");
                                 ElemType e;
                                 scanf("%d",&e);
@@ -87,17 +90,19 @@ int main(){
                                 else printf("不存在值为%d节点\n",e);
                                 }
                                 break;
-                        case 7: if(ReverseList(L))printf("反转成功\n");
+                        case 7: if((*L) == NULL){printf("请先初始化\n");break;}
+                                if(ReverseList(L))printf("反转成功\n");
                                 else printf("反转失败");
                                 break;
-                        case 8:
+                        case 8:if((*L) == NULL){printf("请先初始化\n");break;}
                                 if(IsLoopList(*L))printf("有环\n");
                                 else printf("无环\n");
                                 break;
-                        case 9:if(ReverseEvenList(L))printf("反转成功\n");
+                        case 9:if((*L) == NULL){printf("请先初始化\n");break;}
+                                if(ReverseEvenList(L))printf("反转成功\n");
                                 else printf("反转失败");
                                 break;
-                        case 10:
+                        case 10:if((*L) == NULL){printf("请先初始化\n");break;}
                                 {
                                 LNode* p;
                                 if((p = FindMidNode(L))!=NULL)printf("中点值为%d\n",p->data);

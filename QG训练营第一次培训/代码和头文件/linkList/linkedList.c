@@ -105,6 +105,7 @@ Status SearchList(LinkedList L, ElemType e) {
  *  @notice      : None
  */
 Status ReverseList(LinkedList *L) {
+        if((*L) == NULL)return ERROR;
         LNode *p1,*p2,*p3;
         p1 = (*L)->next;                   if(p1 == NULL)return SUCCESS;
         p2 = (*L)->next->next;             if(p2 == NULL)return SUCCESS;
@@ -129,6 +130,7 @@ Status ReverseList(LinkedList *L) {
  *  @notice      : None
  */
 Status IsLoopList(LinkedList L) {
+        if(L == NULL)return ERROR;
         LNode *fast,*slow;
         fast=slow=L;
         while(1){
@@ -148,6 +150,7 @@ Status IsLoopList(LinkedList L) {
  *  @notice      : choose to finish
  */
 LNode* ReverseEvenList(LinkedList *L) {
+        if((*L) == NULL)return ERROR;
         LNode *p1 = *L,*p2,*p3 = *L;
         while(1){
                 p1 = p1->next;
@@ -170,6 +173,7 @@ LNode* ReverseEvenList(LinkedList *L) {
  *  @notice      : choose to finish
  */
 LNode* FindMidNode(LinkedList *L) {
+        if((*L) == NULL)return ERROR;
         LNode *mid,*fast;
         mid = fast = *L;
         while(1){
